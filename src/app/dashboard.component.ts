@@ -7,7 +7,9 @@ import { HeroService } from './hero.service';
     providers: [HeroService],
     selector: 'my-dashboard',
     //template: `<h3>My Dashboard</h3>`
-    templateUrl: './dashboard.component.html'
+    templateUrl: './dashboard.component.html',
+    styleUrls: [`./dashboard.component.css`]
+    
 })
 export class DashboardComponent implements OnInit {
     //define an array property
@@ -15,10 +17,8 @@ export class DashboardComponent implements OnInit {
     //inject the HeroService and store in a constructor
     constructor(private heroService: HeroService) { }
     //Call the service on the ngOnInit lifecycle
-    getHeroes(): void {
-        this.heroService.getHeroes().then(heroes => this.heroes = heroes.slice(3, 7));
-    }
     ngOnInit(): void {
-        this.getHeroes();
+       this.heroService.getHeroes()
+      .then(heroes => this.heroes = heroes.slice(1, 5));
     }
 }
