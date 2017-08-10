@@ -21,6 +21,7 @@ import { AppRoutingModule } from './app-routing.module';
     // simulates communication with the remote server by adding the InMemoryWebApiModule to the module imports, 
     //effectively replacing the Http client's XHR backend service with an in-memory alternative.
     InMemoryWebApiModule.forRoot(InMemoryDataService),
+    //the InMemoryWebApiModule must be import before AppRoutingModule in order to be able to fetch data from API
     AppRoutingModule
     
     ],
