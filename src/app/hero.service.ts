@@ -36,13 +36,30 @@ export class HeroService {
             .then(response => response.json().data as Hero)
             .catch(this.handleError);
     }
+    //update hero information
     update(hero: Hero): Promise<Hero> {
         const url = `${this.heroesUrl}/${hero.id}`;
         return this.http
-        //the put() 
+            //the put() 
             .put(url, JSON.stringify(hero), { headers: this.headers })
             .toPromise()
             .then(() => hero)
+            .catch(this.handleError);
+    }
+    //create new hero
+    create(name: string): Promise<Hero> {
+        return this.http
+            .post(this.heroesUrl, JSON.stringify({ name: name }), { headers: this.headers })
+            .toPromise()
+            .then(res => res.json().data as Hero)
+            .catch(this.handleError);
+    }
+    //delete a hero base on the hero id
+    delete(id: number): Promise<void> {
+        const url = `${this.heroesUrl}/${id}`;
+        return this.http.delete(url, { headers: this.headers })
+            .toPromise()
+            .then(() => null)
             .catch(this.handleError);
     }
 

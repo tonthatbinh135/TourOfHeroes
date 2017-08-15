@@ -8,6 +8,7 @@ import { InMemoryDataService }  from './in-memory-data.service';
 
 import { AppComponent } from './app.component';
 import { HeroDetailComponent } from './hero-detail.component';
+import {HeroSearchComponent} from './search/hero-search.component';
 import { HeroesComponent } from './heroes.component';
 import { DashboardComponent } from './dashboard.component';
 import { HeroService } from './hero.service';
@@ -28,7 +29,8 @@ import { AppRoutingModule } from './app-routing.module';
   declarations: [
     AppComponent, 
     HeroDetailComponent, 
-    HeroesComponent, 
+    HeroesComponent,
+    HeroSearchComponent, 
     DashboardComponent],
   providers: [HeroService],
   bootstrap: [AppComponent]
